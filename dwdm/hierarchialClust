@@ -1,0 +1,12 @@
+library(factoextra)
+library(datasets)
+head(iris)
+iris
+summary(iris)
+library(ggplot2)
+ggplot(iris, aes(Petal.Length,  Petal.Width, color = Species)) + geom_point()
+set.seed(20)
+irisCluster <- eclust(iris[,3:4], "hclust", k = 3,nstart = 25)
+irisCluster$dist.method
+irisCluster$method
+ggplot(iris, aes(Petal.Length, Petal.Width, color = irisCluster$cluster)) + geom_point()
